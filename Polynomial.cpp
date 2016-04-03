@@ -87,10 +87,9 @@ Polynomial Polynomial::operator/(const Polynomial& p)
         running = ~running;
         out.coef.push_back(scalar.coef[degree - p.degree - i]);
         Polynomial test;
-        scalar.display();
-        running.display();
+
         test = divisor*scalar;
-        test.display();
+       
         running = running-test;
 
         running = ~running;
