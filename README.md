@@ -17,5 +17,7 @@ poly1.display(); //shows poly in the form ax^4 + bx^3 + cx^2 + dx^1 +e
 
 
 Let x, y, z be polynomials, then the following binary operations hold:
-z = x + y; z = x - y; z = x * y; z = x / y; z = x % y; If at any time you need to flip the order of a polynomial (which is useful in construction within the class) you may say x = ~x;
+z = x + y; z = x - y; z = x * y; z = x / y; z = x % y; If at any time you need to flip the order of a polynomial (which is useful in construction within the class) you may say x = ~x; Another useful unary operation is x = !x; This will clean up any polynomial. For example
+
+0x^3 + 0x^2 + 1x + 4 -> 1x + 4
 
