@@ -13,7 +13,7 @@ class Polynomial
         void define();
         void display();
 
-
+        Polynomial operator!();
         Polynomial operator/(const Polynomial&);
         Polynomial operator%(const Polynomial&);
         Polynomial operator*(const Polynomial&);
