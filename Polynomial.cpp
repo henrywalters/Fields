@@ -97,6 +97,40 @@ Polynomial Polynomial::operator/(const Polynomial& p)
     out = ~out;
     return out;
 }
+Polynomial Polynomial::operator!()
+{
+    Polynomial new_p;
+    int i = degree;
+    while (2 == 2)
+    {
+        if (coef[degree - i] != 0) { break; }
+        i--;
+    }
+    new_p.set_degree(i);
+    while (i >= 0)
+    {
+        new_p.coef.push_back(coef[degree - i]);
+        i--;
+    }
+    return new_p;
+}
+Polynomial Polynomial::operator%(const Polynomial& p)
+{
+    Polynomial x,y,r;
+    x.set_degree(degree);
+    y.set_degree(p.degree);
+    r.set_degree(degree - p.degree);
+    for (int i = 0; i <= degree; i++) { x.coef.push_back(coef[i]); }
+    for (int i = 0; i <= p.degree; i++) {y.coef.push_back(p.coef[i]); }
+
+    Polynomial test;
+
+    r = x - ((x/y)*y);
+    r = ~r;
+    r = !r;
+    r = ~r;
+    return r;
+}
 Polynomial Polynomial::operator*(const Polynomial& p)
 {
     Polynomial out;
