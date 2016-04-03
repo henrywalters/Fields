@@ -75,22 +75,22 @@ Polynomial Polynomial::operator/(const Polynomial& p)
     for (int i = degree ; i >= 0; i--) { running.coef.push_back(coef[i]); }
 
     out.set_degree(degree - p.degree);
-    Polynomial scalar;
-    for (int i = 0; i <= degree - p.degree; i++){ scalar.coef.push_back(0);}
-    scalar.set_degree(degree - p.degree);
 
     for (int i = 0; i <= degree - p.degree; i++)
     {
-        scalar.coef[degree - p.degree - i] = (running.coef[i]/p.coef[p.degree - i]);
+        Polynomial scalar;
+        for (int i = 0; i <= degree - p.degree; i++){ scalar.coef.push_back(0);}
+        scalar.coef[degree - p.degree - i] = (running.coef[i]/p.coef[p.degree]);
+        scalar.set_degree(degree - p.degree);
 
 
-        if (i > 0) { scalar.coef[degree - p.degree - i - 1] = 0;}
         running = ~running;
         out.coef.push_back(scalar.coef[degree - p.degree - i]);
         Polynomial test;
-
+        scalar.display();
+        running.display();
         test = divisor*scalar;
-
+        test.display();
         running = running-test;
 
         running = ~running;
